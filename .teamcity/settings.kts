@@ -32,6 +32,7 @@ project {
     vcsRoot(Kotlin)
 
     buildType(KotlinTestingConfig)
+    buildType(KotlinTestingConfig2)
 }
 
 object KotlinTestingConfig : BuildType({
@@ -40,6 +41,21 @@ object KotlinTestingConfig : BuildType({
     steps {
         script {
             scriptContent = """echo "TeamCity""""
+        }
+    }
+    triggers {
+        vcs {
+
+        }
+    }
+})
+
+object KotlinTestingConfig2 : BuildType({
+    name = "kotlin testing config2"
+
+    steps {
+        script {
+            scriptContent = """echo "Second Teamcity""""
         }
     }
     triggers {
